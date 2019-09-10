@@ -8,9 +8,9 @@ pipeline {
         }
         stage('Upload to AWS') {
             steps {
-                withAWS(region:'us-east-2',credentials:'aws-static') {
+                withAWS(region:'us-west-2',credentials:'cb2k-static') {
 		    sh 'echo "Hello World with AWS creds"'
-                    s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'adeza-static-jenkins-pipeline')
+                    s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'index.html', bucket:'cb2k-static-jenkins-pipeline')
                 }
             }
         }
